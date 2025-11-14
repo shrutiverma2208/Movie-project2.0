@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a; /* Dark background matching the image */
+    color: white;
+    padding: 0 20px;
+    height: 50px;
+    font-family: sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    opacity: 0.8; /* Slightly less opaque links */
+    transition: opacity 0.3s;
+}
+.nav-link:hover {
+    opacity: 1;
+}
+
+.nav-brand {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.nav-logout {
+    color: #ffcc00; /* Yellow color for the logout link */
+    opacity: 1; /* Logout link seems fully opaque */
+}

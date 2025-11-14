@@ -1,29 +1,31 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import SignUp from './pages/Register/SignUp'
 import SignIn from './pages/Login/SignIn'
-import ReviewList from './pages/Review/Review-list/Review-list'
 import Navbar from './components/Navbar/Navbar'
+import MovieList from './pages/MovieList/MovieList'
+import ChangePassword from './pages/ChangePassword/ChangePassword'
+import ReviewList from './pages/Review/Review-list/Review-list'
+
+import AllReview from './pages/AllReview/AllReview';
+
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-  const handleLogin = () => {
-    setIsAuthenticated(true)
-  }
-
   const handleLogout = () => {
-    setIsAuthenticated(false)
+    // Logout logic
   }
 
   return (
     <>
-      {isAuthenticated && <Navbar onLogout={handleLogout} />}
+      <Navbar onLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Navigate to="/review" /> : <SignIn onLogin={handleLogin} />} />
+        <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/review" element={isAuthenticated ? <ReviewList /> : <Navigate to="/" />} />
+        <Route path="/review" element={<MovieList />} />
+        <Route path="/movieList" element={<MovieList />} />
+        <Route path="/review-list" element={<ReviewList />} />
+        <Route path="/changeP" element={<ChangePassword />} />
+        <Route path="/reviewAll" element={<AllReview/>}/>
       </Routes>
     </>
   )

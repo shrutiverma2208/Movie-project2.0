@@ -11,7 +11,7 @@ const router = express.Router()
 router.post('/register', (req, res) => {
   const { firstName, lastName, email,password,mobile, birth } = req.body
   const encryptedPassword = String(cryptoJs.SHA256(password))
-  const sql = `INSERT INTO user(first_name, last_name, email, password, mobile,birth) VALUES(?,?,?,?,?.?)`
+  const sql = `INSERT INTO user(first_name, last_name, email,  mobile,password,birth) VALUES(?,?,?,?,?.?)`
   pool.query(
     sql,
     [firstName, lastName, email, encryptedPassword, phone],

@@ -20,7 +20,7 @@ const SignUp = () => {
   // get navigate function reference
   const navigate = useNavigate()
 
-  const onRegister = async () => {
+  const onSigningUp = async () => {
     if (firstName.length == 0) {
       toast.warning('please enter first name')
     } else if (lastName.length == 0) {
@@ -134,7 +134,7 @@ const SignUp = () => {
         </div>
         <div>
           <button
-            onClick={onRegister}
+            onClick={onSigningUp}
             className='btn btn-success'
           >
             Sign Up
