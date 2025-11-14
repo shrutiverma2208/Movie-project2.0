@@ -13,6 +13,7 @@ const SignUp = () => {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [dateBirth,setDateBirth] =useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
@@ -28,6 +29,8 @@ const SignUp = () => {
       toast.warning('please enter email')
     } else if (phone.length == 0) {
       toast.warning('please enter phone number')
+    } else if (dateBirth.length == 0) {
+      toast.warning('please enter date of birth')
     } else if (password.length == 0) {
       toast.warning('please enter password')
     } else if (confirmPassword.length == 0) {
@@ -40,7 +43,8 @@ const SignUp = () => {
         lastName,
         email,
         password,
-        phone
+        phone,
+        dateBirth
       )
       if (response['status'] === 'success') {
         toast.success('Successfully registered user')
@@ -55,28 +59,34 @@ const SignUp = () => {
 
   return (
     <div className='container'>
-      <h2 className='page-header'>Register</h2>
+      <h2 className='page-header'>Sign Up</h2>
       <div className='register-container'>
-        <div className='mb-3'>
-          <label htmlFor=''>First Name</label>
-          <input
-            onChange={(e) => setFirstName(e.target.value)}
-            type='text'
-            className='form-control'
-          />
+        <div className='row'>
+          <div className='col-6'>
+            <div className='mb-3'>
+              <label htmlFor=''>First Name</label>
+              <input
+                onChange={(e) => setFirstName(e.target.value)}
+                type='text'
+                className='form-control'
+              />
+            </div>
+          </div>
+
+          <div className='col-6'>
+            <div className='mb-3'>
+              <label htmlFor=''>Last Name</label>
+              <input
+                onChange={(e) => setLastName(e.target.value)}
+                type='text'
+                className='form-control'
+              />
+            </div>
+          </div>
         </div>
 
         <div className='mb-3'>
-          <label htmlFor=''>Last Name</label>
-          <input
-            onChange={(e) => setLastName(e.target.value)}
-            type='text'
-            className='form-control'
-          />
-        </div>
-
-        <div className='mb-3'>
-          <label htmlFor=''>Email</label>
+          <label htmlFor=''>Email address</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
             type='email'
@@ -85,10 +95,19 @@ const SignUp = () => {
         </div>
 
         <div className='mb-3'>
-          <label htmlFor=''>Phone Number</label>
+          <label htmlFor=''>Mobile Number</label>
           <input
             onChange={(e) => setPhone(e.target.value)}
             type='tel'
+            className='form-control'
+          />
+        </div>
+
+        <div className='mb-3'>
+          <label htmlFor=''>Date of Birth</label>
+          <input
+            onChange={(e) => setDateBirth(e.target.value)}
+            type='date'
             className='form-control'
           />
         </div>
@@ -111,14 +130,14 @@ const SignUp = () => {
         </div>
 
         <div>
-          Already have an account? <Link to='/'>Login here</Link>
+          Already have an account? <Link to='/'>Sign In</Link>
         </div>
         <div>
           <button
             onClick={onRegister}
             className='btn btn-success'
           >
-            Register
+            Sign Up
           </button>
         </div>
       </div>
